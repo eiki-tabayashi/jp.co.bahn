@@ -29,6 +29,7 @@ module.exports = function(gulp, task) {
   // ---------------------------------------------------------------------------
   // Watch
   // ---------------------------------------------------------------------------
+  /** watch **/
   gulp.task('watch', function() {
     gulp.watch(path.data.documents.build, gulp.task('documents:build'));
   });
