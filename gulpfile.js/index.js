@@ -1,11 +1,11 @@
 'use strict';
-var runner  = require('gulp');
+var gulp    = require('gulp');
 var Router  = require('gulp.plus-router');
 var Loader  = require('gulp.plus-loader');
 
 var router  = new Router();
-var streams = new Loader('gulpfile.js/streams', [runner]);
-var tasks   = new Loader('gulpfile.js/tasks',   [streams, runner]);
+var streams = new Loader('gulpfile.js/streams', [gulp]);
+var tasks   = new Loader('gulpfile.js/tasks',   [streams, gulp]);
 var should  = Router.should;
 
 // -----------------------------------------------------------------------------
@@ -33,7 +33,8 @@ router
   .route({
     m: 'development',
     c: '',
-  }, require('./routes/docs/development.js'))
+  }, require('./routes/development.js'))
+  /*
   .route({
     m: 'production',
     c: '',
@@ -45,10 +46,12 @@ router
   .route({
     m: 'production',
     c: should.notBeEqualsTo(''),
-  }, require('./routes/cmps/development.js'));
+  }, require('./routes/cmps/development.js'))
+  */
+  ;
 
 // -----------------------------------------------------------------------------
 // [Router] Run
 // -----------------------------------------------------------------------------
 
-router.run(runner, tasks);
+router.run(gulp, tasks);
