@@ -11,7 +11,7 @@ module.exports = function(streams) {
         'indent_char': ' ',
         'end_with_newline': true,
       });
-      params.default('pug.options', {basedir: process.cwd()});
+      params.default('pug.options', { basedir: process.cwd() });
 
       return streams
         .src(
