@@ -11,9 +11,11 @@ module.exports = function(streams) {
       params.default('imageminify.options', {verbose: true});
       params.default('iconfont.options', {
         normalize: true,
-        fontHeight: 448,
-        descent:     64,
-        formats: ['ttf', 'eot', 'woff', 'svg'],
+        // fontHeight: 448,
+        // descent:     64,
+        fontHeight: 2000,
+        formats: ['eot', 'ttf', 'svg', 'woff'],
+        timestamp: Math.round(Date.now()/1000),
       });
 
       return streams
@@ -44,8 +46,7 @@ module.exports = function(streams) {
                   glyphs: glyphs.map(function(glyph) {
                     return {
                       name: glyph.name,
-                      codepoint: glyph.unicode[0]
-                                      .charCodeAt(0).toString(16),
+                      codepoint: glyph.unicode[0].charCodeAt(0).toString(16),
                     };
                   }),
                 }))

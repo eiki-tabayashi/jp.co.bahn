@@ -5,7 +5,6 @@ module.exports = function(streams) {
   return function(params) {
     return function() {
       params = new Params(params);
-
 //    var stylus  = require('stylus');
       var numcode = require('stylus-numcode');
 //    var paths   = [
@@ -22,7 +21,7 @@ module.exports = function(streams) {
 //      'paths': paths,
         'compress': false,
         'include css': true,
-     });
+      });
       params.default('autoprefixer.options', ['last 2 versions']);
       params.default('beautify.options', {
         'indent_size': 2,

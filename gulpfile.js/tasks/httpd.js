@@ -11,7 +11,9 @@ module.exports = function(streams) {
           params.get('src.globs'),
           params.get('src.options')
         )
-        .pipe(streams.httpd(params.get('httpd.options')));
+        .pipe(streams.httpd(
+          params.get('httpd.options')
+        ));
     };
   };
 };

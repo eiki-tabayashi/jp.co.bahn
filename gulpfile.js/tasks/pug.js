@@ -27,8 +27,8 @@ module.exports = function(streams) {
         .pipe(streams.replace(RegExp('\n+', 'g'), '\n'))
         .pipe(streams.dest(
           params.get('dest.folder'),
-          params.get('dest.options')
-        ));
+          params.get('dest.options'))
+        );
     };
   };
 };
