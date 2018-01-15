@@ -15,7 +15,7 @@ module.exports = function(gulp, task) {
   // HTML
   // ---------------------------------------------------------------------------
   /** html:build **/
-  args.set('src.globs', path.get('src') + '/**/*.pug')
+  args.set('src.globs', path.get('src') + '/*.pug')
       .set('dest.folder', path.get('dest'));
   path.set('html.build', args.get('src.globs'));
   gulp.task('html:build', task.pug(args.dump()));
@@ -25,8 +25,8 @@ module.exports = function(gulp, task) {
   // ---------------------------------------------------------------------------
   /** css:build **/
   args.set('src.globs', path.get('src') + '/styles/*.styl')
-      .set('dest.folder', path.get('dest') + '/styles');
-  args.set('stylus.options.paths', [path.get('inc') + '/styles']);
+      .set('dest.folder', path.get('dest') + '/styles')
+      .set('stylus.options.paths', [path.get('inc') + '/styles']);
   path.set('css.build', args.get('src.globs'));
   gulp.task('css:build', task.stylus(args.dump()));
 

@@ -1,10 +1,10 @@
 'use strict';
-var imagemagick = require('gulp-gm');
 
 module.exports = function() {
   return {
     get: function() {
       return function(options) {
+        var imagemagick = require('gulp-gm');
         options = options || {};
         options.width  = 'undefined' !== typeof options.width  ?
                                                 options.width  :

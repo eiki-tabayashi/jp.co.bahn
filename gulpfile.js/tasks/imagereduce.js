@@ -1,7 +1,6 @@
 'use strict';
 var Params = require('gulp.plus-parameter');
-var path   = require('path');
-var join   = path.join;
+var join   = require('path').join;
 
 /**
  * srcフォルダに@1x指定のない画像ファイルがある場合、
@@ -27,9 +26,9 @@ module.exports = function(streams) {
       params.default('imageminify.plugins', [
         pngquant({speed: 1}),
         mozjpeg(),
-        imagemin.svgo(),
-        imagemin.optipng(),
-        imagemin.gifsicle(),
+        streams.imageminify.svgo(),
+        streams.imageminify.optipng(),
+        streams.imageminify.gifsicle(),
       ]);
       params.default('imageminify.options', {verbose: true});
 
