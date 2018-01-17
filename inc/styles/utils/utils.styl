@@ -1,23 +1,23 @@
---ns-defaults = {
-  namespace: 'default'
-};
-
---ns-current ?= { 'current': --ns-defaults.namespace };
-
-set-ns-current(-ns-current) {
-  --ns-current['current'] = -ns-current;
-}
-
-get-ns-current(-maybe-ns-current) {
-  -ns-current = -maybe-ns-current;
-  if -ns-current == '' {
-    -ns-current = --ns-current['current'];
-  }
-  if -ns-current == '' {
-    -ns-current = --ns-defaults.namespace;
-  }
-  return -ns-current;
-}
+// --ns-defaults = {
+//   namespace: 'default'
+// };
+// 
+// --ns-current ?= { 'current': --ns-defaults.namespace };
+// 
+// set-ns-current(-ns-current) {
+//   --ns-current['current'] = -ns-current;
+// }
+// 
+// get-ns-current(-maybe-ns-current) {
+//   -ns-current = -maybe-ns-current;
+//   if -ns-current == '' {
+//     -ns-current = --ns-current['current'];
+//   }
+//   if -ns-current == '' {
+//     -ns-current = --ns-defaults.namespace;
+//   }
+//   return -ns-current;
+// }
 
 // -----------------------------------------------------------------------------
 //
@@ -25,7 +25,7 @@ get-ns-current(-maybe-ns-current) {
 //
 // -----------------------------------------------------------------------------
 
-support-current-color ?= false;
+// support-current-color ?= false;
 
 // -longhand-defaults ?= {};
 //
@@ -413,14 +413,14 @@ support-current-color ?= false;
 // Microsoft ARGB
 // -----------------------------------------------------------------------------
 
-hex(decimal) {
-    hex-value = ('0') ('1') ('2') ('3') ('4') ('5') ('6') ('7') ('8') ('9') ('A') ('B') ('C') ('D') ('E') ('F')
-    unquote(hex-value[ floor(decimal / 16) ] + hex-value[ floor(decimal % 16) ]);
-}
-
-argb(color, alpha = 1) {
-    unquote('#') + hex(alpha * 255) + hex(red(color)) + hex(green(color)) + hex(blue(color))
-}
+// hex(decimal) {
+//     hex-value = ('0') ('1') ('2') ('3') ('4') ('5') ('6') ('7') ('8') ('9') ('A') ('B') ('C') ('D') ('E') ('F')
+//     unquote(hex-value[ floor(decimal / 16) ] + hex-value[ floor(decimal % 16) ]);
+// }
+// 
+// argb(color, alpha = 1) {
+//     unquote('#') + hex(alpha * 255) + hex(red(color)) + hex(green(color)) + hex(blue(color))
+// }
 
 // -----------------------------------------------------------------------------
 //
@@ -700,22 +700,22 @@ argb(color, alpha = 1) {
 // background-color
 // -----------------------------------------------------------------------------
 
-background-color(c) {
-    type = typeof(c);
-    if type in ('rgba' 'hsla') and alpha(c) < 1 {
-        a = alpha(c);
-        ms = argb(c, a);
-        background-color: rgba(c, a);
-        filter: s('progid:DXImageTransform.Microsoft.gradient(startColorstr=%s,endColorstr=%s)', ms, ms);
-        -ms-filter: s('"progid:DXImageTransform.Microsoft.gradient(startColorstr=%s,endColorstr=%s)"', ms, ms);
-        &:nth-child(n) {
-            filter: none;
-            -ms-filter: none;
-        }
-    } else {
-        background-color: c;
-    }
-}
+// background-color(c) {
+//     type = typeof(c);
+//     if type in ('rgba' 'hsla') and alpha(c) < 1 {
+//         a = alpha(c);
+//         ms = argb(c, a);
+//         background-color: rgba(c, a);
+//         filter: s('progid:DXImageTransform.Microsoft.gradient(startColorstr=%s,endColorstr=%s)', ms, ms);
+//         -ms-filter: s('"progid:DXImageTransform.Microsoft.gradient(startColorstr=%s,endColorstr=%s)"', ms, ms);
+//         &:nth-child(n) {
+//             filter: none;
+//             -ms-filter: none;
+//         }
+//     } else {
+//         background-color: c;
+//     }
+// }
 
 // -----------------------------------------------------------------------------
 // background
@@ -763,28 +763,28 @@ background-color(c) {
 // clearfix
 // -----------------------------------------------------------------------------
 
-$zone {
-    clear: fix;
-    overflow: hidden;
-    position: relative;
-}
-
-$clearfix {
-    &:before,
-    &:after {
-        content: '';
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
-clear(value) {
-    if (value == fix or value == fixed) {
-        @extend $clearfix;
-        haslayout();
-    } else {
-        clear: value;
-    }
-}
+// $zone {
+//     clear: fix;
+//     overflow: hidden;
+//     position: relative;
+// }
+// 
+// $clearfix {
+//     &:before,
+//     &:after {
+//         content: '';
+//         display: table;
+//     }
+//     &:after {
+//         clear: both;
+//     }
+// }
+// 
+// clear(value) {
+//     if (value == fix or value == fixed) {
+//         @extend $clearfix;
+//         haslayout();
+//     } else {
+//         clear: value;
+//     }
+// }

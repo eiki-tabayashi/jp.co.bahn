@@ -1,13 +1,12 @@
 @require "utils";
-font-face('icon');
 
-$--icons-icon ?= {};
-$--icons-icon['dot--active'] = '\ea01';
-$--icons-icon['dot'] = '\ea02';
+$--sprites-<%= spritename %> ?= {};
+<% sprites.forEach(function(sprite) { %>$--sprites-<%= spritename %>['<%= sprite.name %>'] = '\<%= glyph.codepoint %>';
+<% }); %>
 
-icons-icon(glyphname) {
-  codepoint = $--icons-icon[glyphname];
-  font-family: "icon";
+icons-<%= fontname %>(glyphname) {
+  codepoint = $--icons-<%= fontname %>[glyphname];
+  font-family: "<%= fontname %>";
   font-style: normal;
   font-variant: normal;
   font-weight: normal;

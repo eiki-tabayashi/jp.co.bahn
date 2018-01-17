@@ -44,8 +44,7 @@ module.exports = function() {
                 var values = json[name];
                 var pixel  = values.px;
                 var names  = name.split(options.glue);
-                var state  = names.length > 1 ? names.pop()
-                                              : options.state;
+                var state  = names.length > 1 ? names.pop() : options.state;
                 name = names.join('');
                 memo[name] = memo[name] || {};
                 memo[name][state] = {
